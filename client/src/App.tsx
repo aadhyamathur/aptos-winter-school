@@ -1,10 +1,9 @@
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design";
-import { Layout, Row, Col, Button, Spin } from "antd";
-import { PlusCircleFilled } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 import { Network, Provider } from "aptos";
+import './Button49.css';
 
 export const provider = new Provider(Network.TESTNET);
 // change this to be your module account address
@@ -93,40 +92,33 @@ function App() {
 
   return (
     <>
-      <Layout>
-        <Row align="middle" justify="space-between">
-          <Col>
-            <h1>Global Like Smash</h1>
-          </Col>
-          <Col style={{ textAlign: "center" }}>
-            <WalletSelector />
-          </Col>
-        </Row>
-      </Layout>
-      <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}>
-        <Spin spinning={transactionInProgress}>
-          <Row style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}>
-            <Col>
-              <Button
-                disabled={!account}
-                block
-                onClick={incrementCounter}
-                type="primary"
-                style={{ margin: "0 auto", borderRadius: "50%", height: "200px", width: "200px", backgroundColor: "#3f67ff", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}
-              >
-                <PlusCircleFilled style={{ fontSize: "80px" }} />
-                <p style={{ fontSize: "20px" }}>Click Me!</p>
-              </Button>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <p style={{ fontSize: "80px", textAlign: "center" }}>Count: {counter}</p>
-            </Col>
-          </Row>
-        </Spin >
-      </div>
+     <div style={{
+       display: "flex",
+       flexDirection: "column",
+       backgroundColor: "#6f8178",
+       height: '99vh',
+       width: '99vw', 
+       justifyContent: "center",
+       alignItems: "center",
+       
 
+     }}>
+      <div style={{
+        width: "full",
+        display:"flex",
+        padding: '50px'
+      }}>  <WalletSelector /></div>
+     
+    
+
+
+      <button  disabled={!account}
+        onClick={incrementCounter} className="button-49" role="button">
+      SMASH ME 
+      <span className="button-text"> HITS: {counter} </span>
+    </button>
+      
+    </div>
     </>
   );
 }
